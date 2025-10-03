@@ -89,7 +89,7 @@ OPENAI_API_BASE,GOOGLE_COMPLETIONS_API,MISTRAL_API_BASE,COHERE_API_BASE,ANTHROPI
 | AI_PROVIDER                  | AI提供商           | `auto`   | 可选值 `auto, openai, azure, workers, gemini, mistral, cohere, anthropic` |
 | AI_IMAGE_PROVIDER            | AI图片提供商         | `auto`   | 可选值 `auto, openai, azure, workers`                                     |
 | SYSTEM_INIT_MESSAGE          | 全局默认初始化消息       | `null`   | 根据绑定的语言自动选择默认值                                                         |
-| ~~SYSTEM_INIT_MESSAGE_ROLE~~ | ~~全局默认初始化消息角色~~ | `system` | 废弃                                                                     |
+| PROMPT | 全局默认初始化Prompt | `none` | 如果用户设置了Prompt, 则使用用户的                                                                     |
 
 ### OpenAI
 
@@ -223,6 +223,8 @@ OPENAI_API_BASE,GOOGLE_COMPLETIONS_API,MISTRAL_API_BASE,COHERE_API_BASE,ANTHROPI
 | `/redo`    | 修改上一个提问或者换一个回答      | `/redo 修改过的内容` 或者 `/redo`                       |
 | `/models`  | 切换对话模型              | `/models` 后通过内置菜单选择模型                           |
 | `/echo`    | 回显消息,仅开发模式可用        | `/echo`                                         |
+| `/prompt`    | 自定义用户Prompt        | `/prompt you are a helpful assistant.`                                         |
+
 
 ## 自定义命令
 
