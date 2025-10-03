@@ -1,16 +1,5 @@
 # Cloudflare Workers 部署流程
 
-> 如果你需要本地部署或者docker部署，请查看[本地部署](LOCAL.md)文档
-> 
-> 如果你需要部署到Vercel，请查看[Vercel部署示例](VERCEL.md)文档
-
-## 视频教程
-
-<a href="https://youtu.be/BvxrZ3WMrLE"><img style="max-width: 600px;" alt="image" src="https://user-images.githubusercontent.com/9513891/223895059-1ffa48c7-8801-4d7b-b9d3-15c857d03225.png"></a>
-
-感谢 [**科技小白堂**](https://www.youtube.com/@lipeng0820) 提供此视频教程
- 
-
 ## 手动部署
 
 ### 1. 新建Telegram机器人, 获得Token
@@ -37,7 +26,7 @@
 
 1. 打开 [Cloudflare Workers](https://dash.cloudflare.com/?to=/:account/workers) 注册账号
 2. 点击右上角的 `Create a Service`
-3. 进入新建的workers, 选择`Quick Edit`, 将[`../dist/index.js`](../../dist/index.js)代码复制到编辑器中,保存
+3. 进入新建的workers, 选择`Quick Edit`, 将[`../worker.js`](../../worker.js)代码复制到编辑器中,保存
 
 
 ### 4. 配置环境变量
