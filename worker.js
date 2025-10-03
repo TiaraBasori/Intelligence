@@ -504,10 +504,9 @@ class UpdateContext {
       this.chatType = update.callback_query.message?.chat.type;
       this.isForum = update.callback_query.message?.chat.is_forum;
     } else if (update.inline_query) {
-      // 修复点：增加对 inline_query 的支持
       this.fromUserID = update.inline_query.from?.id;
-      this.chatID = update.inline_query.from?.id; // inline mode 没有 chat.id，只能用用户 id
-      this.chatType = "private"; // Telegram inline_query 没有 chatType，设为 private
+      this.chatID = update.inline_query.from?.id;
+      this.chatType = "private";
     } else {
       console.error("Unknown update type");
     }
@@ -3159,21 +3158,19 @@ class SaveLastMessage {
 class InlineQueryHandler {
   handle = async (update, context) => {
     if (!update.inline_query) return null;
-    console.log("收到 inline_query: ", update.inline_query);
 
     const { inline_query } = update;
     const query = inline_query.query?.trim();
 
     if (!query) {
-      // query为空也要响应
       return createTelegramBotAPI(context.SHARE_CONTEXT.botToken).answerInlineQuery({
         inline_query_id: inline_query.id,
         results: [{
           type: "article",
           id: "empty",
-          title: "请在此输入问题",
+          title: "awa会秒回你的哦~",
           input_message_content: {
-            message_text: "请在此输入你的问题，AI将为你解答。",
+            message_text: "想聊点什么？",
             parse_mode: ENV.DEFAULT_PARSE_MODE
           }
         }],
@@ -3181,20 +3178,17 @@ class InlineQueryHandler {
         is_personal: true
       });
     }
-
-    // 快速默认响应逻辑（Promise.race 实现超时保护）
     let answerText = "LLM is not enabled";
     const agent = loadChatLLM(context.USER_CONFIG);
     if (agent) {
       try {
         const params = { role: "user", content: query };
-        // 限时4秒内完成，否则用默认值
         const answer = await Promise.race([
           agent.request({
             prompt: context.USER_CONFIG.SYSTEM_INIT_MESSAGE || ENV.PROMPT,
             messages: [params]
           }, context.USER_CONFIG, null),
-          new Promise((resolve) => setTimeout(() => resolve({ text: "AI响应超时，请稍后重试。" }), 4000))
+          new Promise((resolve) => setTimeout(() => resolve({ text: "响应超时，请稍后重试。" }), 4000))
         ]);
         answerText = answer.text ?? "未获取到回复";
       } catch (e) {
@@ -3207,7 +3201,7 @@ class InlineQueryHandler {
       results: [{
         type: "article",
         id: "ai-answer",
-        title: answerText.slice(0, 40) || "AI回复",
+        title: answerText.slice(0, 40) || "快理理我0.0",
         input_message_content: {
           message_text: answerText,
           parse_mode: ENV.DEFAULT_PARSE_MODE
@@ -3306,11 +3300,11 @@ function renderHTML(body) {
   return `
 <html lang="en">  
   <head>
-    <title>ChatGPT-Telegram-Workers</title>
+    <title>Intelligence</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ChatGPT-Telegram-Workers">
-    <meta name="author" content="TBXark">
+    <meta name="description" content="Intelligence">
+    <meta name="author" content="TiaraBasori">
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -3457,7 +3451,7 @@ class Router {
     return this.route("ALL", path, ...handlers);
   }
 }
-const helpLink = "https://github.com/TBXark/ChatGPT-Telegram-Workers/blob/master/doc/en/DEPLOY.md";
+const helpLink = "https://github.com/TiaraBasori/Intelligence/blob/master/doc/cn/DEPLOY.md";
 const issueLink = "https://github.com/TBXark/ChatGPT-Telegram-Workers/issues";
 const initLink = "./init";
 const footer = `
