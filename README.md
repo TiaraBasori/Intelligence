@@ -1,70 +1,42 @@
-
-<h1 align="center">
+﻿<h1 align="center">
 ChatGPT-Telegram-Workers
 </h1>
-
-<p align="center">
-    <br> English | <a href="README_CN.md">中文</a>
 </p>
 <p align="center">
-    <em>Deploy your own Telegram ChatGPT bot on Cloudflare Workers with ease.</em>
+    <em>轻松在Cloudflare Workers上部署您自己的Telegram ChatGPT机器人。</em>
 </p>
 
 
-## About
+## 关于
 
-The simplest and fastest way to deploy your own ChatGPT Telegram bot. Use Cloudflare Workers, single file, copy and paste directly, no dependencies required, no need to configure local development environment, no domain name required, serverless.
-
-You can customize the system initialization information so that your debugged personality never disappears.
+最简单快捷部署属于自己的ChatGPT Telegram机器人的方法。使用Cloudflare Workers，单文件，直接复制粘贴一把梭，无需任何依赖，无需配置本地开发环境，不用域名，免服务器。 可以自定义系统初始化信息，让你调试好的性格永远不消失。
 
 <details>
-<summary>example</summary>
-<img style="max-width: 600px;" alt="image" src="./doc/demo.png">
+<summary>查看Demo</summary>
+<img style="max-width: 600px;" alt="image" src="doc/demo.png">
 </details>
 
 
-## Features
+## 特性
 
-- Serverless deployment
-- Multi-platform deployment support (Cloudflare Workers, Vercel, Docker[...](doc/en/PLATFORM.md))
-- Adaptation to multiple AI service providers (OpenAI, Azure OpenAI, Cloudflare AI, Cohere, Anthropic, Mistral, DeepSeek, Gemini, Groq[...](doc/en/CONFIG.md))
-- Switching Models with InlineKeyboards
-- Custom commands (can achieve quick switching of models, switching of robot presets)
-- Support for multiple Telegram bots
-- Streaming output
-- Multi-language support
-- Text-to-image generation
-- [Plugin System](doc/en/PLUGINS.md), customizable plugins.
-
-
-## Documentation
-
-- [Deploy Cloudflare Workers](./doc/en/DEPLOY.md)
-- [Local (or Docker) deployment](./doc/en/LOCAL.md)
-- [Deploy other platforms](./doc/en/PLATFORM.md)
-- [Configuration and Commands](./doc/en/CONFIG.md)
-- [Automatic update](./doc/en/ACTION.md)
-- [Change Log](./doc/en/CHANGELOG.md)
+- 无服务器部署
+- 适配多种AI服务商(OpenAI, Azure OpenAI, Cloudflare AI, Cohere, Anthropic, Mistral...)
+- 使用 InlineKeyboards 切换模型
+- 自定义指令(可以实现快速切换模型,切换机器人预设)
+- 支持多个Telegram机器人
+- 流式输出
+- 多语言支持
+- 文字生成图片
+- [插件系统](doc/cn/PLUGINS.md),可以自定义插件
 
 
-## Related Projects
+## 文档
 
-- [cloudflare-worker-adapter](https://github.com/TBXark/cloudflare-worker-adapter)  A simple Cloudflare Worker adapter that allows this project to run independently of Cloudflare Worker.
-- [telegram-bot-api-types](https://github.com/TBXark/telegram-bot-api-types)  Telegram Bot API SDK with 0 output after compilation, complete documentation, supports all APIs.
-
-
-## Special thanks
-
-![https://www.jetbrains.com/?from=tbxark](https://user-images.githubusercontent.com/9513891/236592683-1ea579cf-08ff-4703-b313-db038f62bab0.svg)
-
-Thanks for the open-source development license provided by [JetBrains](https://www.jetbrains.com/?from=tbxark).
+- [部署Cloudflare Workers](./doc/cn/DEPLOY.md)
+- [配置参数和指令](./doc/cn/CONFIG.md)
 
 
-## Contributors
 
-This project exists thanks to all the people who contribute. [Contribute](https://github.com/tbxark/ChatGPT-Telegram-Workers/graphs/contributors).
+## 许可证
 
-
-## License
-
-**ChatGPT-Telegram-Workers** is released under the MIT license. [See LICENSE](LICENSE) for details.
+本项目以 MIT 许可证发布。[详见 LICENSE](LICENSE) 获取详情。
